@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SELECT</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="select">
+        <div class="input">Выберите услугу</div>
+        <div class="options hidden">
+            <div class="option">Мойка</div>
+            <div class="option">Комплекс</div>
+            <div class="option">Полировка</div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.input').forEach(el => {
+            el.addEventListener('click', function () {
+                const parentElement = this.closest('.select')
+            const options = parentElement.querySelector('.options')
+                if (options.classList.contains('hidden')) {
+                    options.classList.remove('hidden')
+                } else {
+                    options.classList.add('hidden')
+                }
+            })
+        })
+
+        document.querySelectorAll('.option').forEach(el => {
+            el.addEventListener('click', function () {
+                const value = this.innerHTML;
+                const parentElement = this.closest('.select')
+                parentElement.querySelector('.input').innerHTML = value;
+                parentElement.querySelector('.options').classList.add('hidden');
+            })
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
